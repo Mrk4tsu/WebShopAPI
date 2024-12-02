@@ -5,7 +5,6 @@
     - Entity Framework
 ## How to config and run:
 
-## Design function
 
 
 ### Solution structure:
