@@ -1,5 +1,6 @@
 ﻿using KatsuShopSolution.Data.Configurations;
 using KatsuShopSolution.Data.Entities;
+using KatsuShopSolution.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace KatsuShopSolution.Data.EF
@@ -11,6 +12,7 @@ namespace KatsuShopSolution.Data.EF
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            #region[Fluent API Configure]
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
             //Config Cart
             modelBuilder.ApplyConfiguration(new CartConfiguration());
@@ -36,6 +38,9 @@ namespace KatsuShopSolution.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             //Config Transaction
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            #endregion
+
+            modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
         }
         public DbSet<AppConfig> AppConfigs { get; set; }
