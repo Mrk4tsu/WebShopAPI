@@ -68,8 +68,10 @@ namespace KatsuShopSolution.Data.EF
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductTranslation> ProductTranslations { get; set; }
+        public DbSet<ProductInCategory> ProductInCategories { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        
     }
 
 }

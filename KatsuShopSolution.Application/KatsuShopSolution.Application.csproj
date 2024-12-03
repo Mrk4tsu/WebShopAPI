@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KatsuShopSolution.Data\KatsuShopSolution.Data.csproj" />
+    <ProjectReference Include="..\KatsuShopSolution.Utilities\KatsuShopSolution.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>
