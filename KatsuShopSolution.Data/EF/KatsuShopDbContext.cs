@@ -1,11 +1,14 @@
 ﻿using KatsuShopSolution.Data.Configurations;
 using KatsuShopSolution.Data.Entities;
 using KatsuShopSolution.Data.Extensions;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace KatsuShopSolution.Data.EF
 {
-    public class KatsuShopDbContext : DbContext
+    public class KatsuShopDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
         public KatsuShopDbContext(DbContextOptions options) : base(options)
         {
@@ -38,7 +41,19 @@ namespace KatsuShopSolution.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             //Config Transaction
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            //Config AppUser
+            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
+            //Config AppRole
+            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
             #endregion
+
+            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
+            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
+
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
+            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
+
 
             modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
