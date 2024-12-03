@@ -4,14 +4,16 @@ using KatsuShopSolution.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KatsuShopSolution.Data.Migrations
 {
     [DbContext(typeof(KatsuShopDbContext))]
-    partial class KatsuShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241203171159_AspNetIdentityDatabase")]
+    partial class AspNetIdentityDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,16 +75,6 @@ namespace KatsuShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
-                            ConcurrencyStamp = "83024ee1-cab8-4898-8622-5d73b5e5a63d",
-                            Description = "Administrator role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("KatsuShopSolution.Data.Entities.AppUser", b =>
@@ -144,26 +136,6 @@ namespace KatsuShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("22ebd3a9-ea29-4002-a442-99ed1385fa59"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "2957e2b3-a001-433b-88a4-fb5c1aaeca95",
-                            Dob = new DateTime(2002, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "mrk4tsu@gmail.com",
-                            EmailConfirmed = true,
-                            FullName = "Nguyen Duc Thang",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "mrk4tsu@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEA5/qGMqHVOmo5CtnPc/ktzAcLHnbodSN17c0ZNnsCi3W+yj14lagTxsvaS9Fog/iQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("KatsuShopSolution.Data.Entities.Cart", b =>
@@ -521,7 +493,7 @@ namespace KatsuShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2024, 12, 3, 17, 24, 48, 527, DateTimeKind.Utc).AddTicks(8314),
+                            DateCreated = new DateTime(2024, 12, 3, 17, 11, 58, 832, DateTimeKind.Utc).AddTicks(2997),
                             Description = "Chi tiết sản phẩm 1",
                             Name = "Product 1",
                             OriginalPrice = 100000m,
@@ -533,7 +505,7 @@ namespace KatsuShopSolution.Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2024, 12, 3, 17, 24, 48, 528, DateTimeKind.Utc).AddTicks(86),
+                            DateCreated = new DateTime(2024, 12, 3, 17, 11, 58, 832, DateTimeKind.Utc).AddTicks(4667),
                             Description = "Chi tiết sản phẩm 2",
                             Name = "Sản phẩm 2",
                             OriginalPrice = 150000m,
@@ -822,13 +794,6 @@ namespace KatsuShopSolution.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("22ebd3a9-ea29-4002-a442-99ed1385fa59"),
-                            RoleId = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>

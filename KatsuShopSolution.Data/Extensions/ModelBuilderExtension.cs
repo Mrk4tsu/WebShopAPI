@@ -1,5 +1,6 @@
 ﻿using KatsuShopSolution.Data.Entities;
 using KatsuShopSolution.Data.Enums;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -139,10 +140,10 @@ namespace KatsuShopSolution.Data.Extensions
                         ProductId = 1,
                         LanguageId = "vi-VN",
                         Name = "Sản phẩm 1",
-                        SeoTitle = "Sản phẩm 1",                        
+                        SeoTitle = "Sản phẩm 1",
                         SeoAlias = "san-pham-1",
                         SeoDescription = "Đây là thông tin sản phẩm 1",
-                        Details = "Đây là chi tiết sản phẩm 1",                   
+                        Details = "Đây là chi tiết sản phẩm 1",
                     },
                     new ProductTranslation()
                     {
@@ -152,7 +153,7 @@ namespace KatsuShopSolution.Data.Extensions
                         Name = "Product 1",
                         SeoTitle = "Product 1",
                         SeoAlias = "product-1",
-                        SeoDescription = "This is description of product 1",                     
+                        SeoDescription = "This is description of product 1",
                         Details = "This is detail of product 1",
                     },
                     new ProductTranslation()
@@ -182,6 +183,40 @@ namespace KatsuShopSolution.Data.Extensions
                     new ProductInCategory() { ProductId = 1, CategoryId = 1 },
                     new ProductInCategory() { ProductId = 2, CategoryId = 2 }
                 );
+
+            var roleId = new Guid("3F2504E0-4F89-11D3-9A0C-0305E82C3301");
+            var adminId = new Guid("22EBD3A9-EA29-4002-A442-99ED1385FA59");
+            builder.Entity<AppRole>().HasData(
+                new AppRole
+                {
+                    Id = roleId,
+                    Name = "admin",
+                    NormalizedName = "admin",
+                    Description = "Administrator role"
+                });
+
+            var hasher = new PasswordHasher<AppUser>();
+            builder.Entity<AppUser>().HasData(
+                    new AppUser
+                    {
+                        Id = adminId,
+                        UserName = "admin",
+                        NormalizedUserName = "admin",
+                        Email = "mrk4tsu@gmail.com",
+                        NormalizedEmail = "mrk4tsu@gmail.com",
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "Admin@123"),
+                        SecurityStamp = string.Empty,
+                        FullName = "Nguyen Duc Thang",
+                        Dob = new DateTime(2002, 12, 22)
+                    }
+                );
+            builder.Entity<IdentityUserRole<Guid>>().HasData(
+                    new IdentityUserRole<Guid>
+                    {
+                        RoleId = roleId,
+                        UserId = adminId
+                    });
         }
     }
 }

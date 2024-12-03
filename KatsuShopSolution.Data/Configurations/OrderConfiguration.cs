@@ -16,6 +16,8 @@ namespace KatsuShopSolution.Data.Configurations
             builder.Property(p => p.Status).HasDefaultValue(OrderStatus.InProgress);
             builder.Property(p => p.ShipEmail).IsRequired().HasMaxLength(50).IsUnicode(false);
             builder.Property(x => x.ShipName).IsRequired().HasMaxLength(200);
+
+            builder.HasOne(x => x.AppUser).WithMany(x => x.Orders).HasForeignKey(x => x.UserId);
         }
     }
 }
