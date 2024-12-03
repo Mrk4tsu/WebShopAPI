@@ -17,7 +17,6 @@ namespace KatsuShopSolution.Application.Catalog.Products
         Task<bool> UpdateStock(int productId, int addedQuantity);
         Task AddViewCount(int productId);
         Task<int> Delete(int productId);
-        Task<List<ProductViewModel>> GetAll();
         Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
     }
 }

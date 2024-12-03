@@ -66,11 +66,6 @@ namespace KatsuShopSolution.Application.Catalog.Products
             return await _dbContext.SaveChangesAsync();
         }
 
-        public Task<List<ProductViewModel>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
         {
             //1.Select Join
@@ -120,19 +115,43 @@ namespace KatsuShopSolution.Application.Catalog.Products
             return pageResult;
         }
 
-        public Task<int> Update(ProductUpdateRequest request)
+        public async Task<int> Update(ProductUpdateRequest request)
         {
-            throw new NotImplementedException();
+            var product = await _dbContext.Products.FindAsync(request.Id);
+            var productTrans = await _dbContext.ProductTranslations.FirstOrDefaultAsync(x => x.ProductId == request.Id && x.LanguageId == request.LanguageId);
+            if (product == null || productTrans == null)
+            {
+                throw new KatsuShopException($"Cannot find product with id: {request.Id}");
+            }
+            productTrans.Name = request.Name;
+            productTrans.SeoAlias = request.SeoAlias;
+            productTrans.SeoDescription = request.SeoDescription;
+            productTrans.SeoTitle = request.SeoTitle;
+            productTrans.Details = request.Details;
+
+            return await _dbContext.SaveChangesAsync();
         }
 
-        public Task<bool> UpdatePrice(int productId, decimal newPrice)
+        public async Task<bool> UpdatePrice(int productId, decimal newPrice)
         {
-            throw new NotImplementedException();
+            var product = await _dbContext.Products.FindAsync(productId);
+            if (product == null)
+            {
+                throw new KatsuShopException($"Cannot find product with id: {productId}");
+            }
+            product.Price = newPrice;
+            return await _dbContext.SaveChangesAsync() > 0;
         }
 
-        public Task<bool> UpdateStock(int productId, int addedQuantity)
+        public async Task<bool> UpdateStock(int productId, int addedQuantity)
         {
-            throw new NotImplementedException();
+            var product = await _dbContext.Products.FindAsync(productId);
+            if (product == null)
+            {
+                throw new KatsuShopException($"Cannot find product with id: {productId}");
+            }
+            product.Stock += addedQuantity;
+            return await _dbContext.SaveChangesAsync() > 0;
         }
     }
 }
