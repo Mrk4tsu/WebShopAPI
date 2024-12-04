@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using KatsuShopSolution.Utilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
@@ -16,7 +17,7 @@ namespace KatsuShopSolution.Data.EF
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("MrKatsuShopDatabase");
+            var connectionString = configuration.GetConnectionString(SystemConstants.MainConnectionString);
             var optionBuilder = new DbContextOptionsBuilder<KatsuShopDbContext>();
             optionBuilder.UseSqlServer(connectionString);
 

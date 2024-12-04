@@ -115,9 +115,7 @@ namespace KatsuShopSolution.Data.Extensions
                         OriginalPrice = 100000,
                         Price = 120000,
                         Stock = 0,
-                        Name = "Product 1",
                         ViewCount = 0,
-                        Description = "Chi tiết sản phẩm 1",
                         Status = Status.Active,
                     },
                     new Product()
@@ -127,9 +125,7 @@ namespace KatsuShopSolution.Data.Extensions
                         OriginalPrice = 150000,
                         Price = 180000,
                         Stock = 0,
-                        Name = "Sản phẩm 2",
                         ViewCount = 0,
-                        Description = "Chi tiết sản phẩm 2",
                         Status = Status.Active,
                     }
                 );

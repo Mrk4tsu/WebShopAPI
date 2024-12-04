@@ -4,14 +4,16 @@ using KatsuShopSolution.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KatsuShopSolution.Data.Migrations
 {
     [DbContext(typeof(KatsuShopDbContext))]
-    partial class KatsuShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241203185448_Update")]
+    partial class Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,7 +80,7 @@ namespace KatsuShopSolution.Data.Migrations
                         new
                         {
                             Id = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
-                            ConcurrencyStamp = "45f11b20-eb1c-45fa-9275-d41b5f094fe6",
+                            ConcurrencyStamp = "9f040502-5507-46e5-8110-f1a19b693fd6",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -150,7 +152,7 @@ namespace KatsuShopSolution.Data.Migrations
                         {
                             Id = new Guid("22ebd3a9-ea29-4002-a442-99ed1385fa59"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c2d53652-514a-4de4-8462-f2f671a7cf6f",
+                            ConcurrencyStamp = "bc50e350-69e1-4a0b-a744-eda3813c063c",
                             Dob = new DateTime(2002, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "mrk4tsu@gmail.com",
                             EmailConfirmed = true,
@@ -158,7 +160,7 @@ namespace KatsuShopSolution.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "mrk4tsu@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAyfg6ZR4wqD4hRRMOILD5aSjXH5D2JLbGNlRFsKGjx3kVJbICmTlfEOUJRNlOXGbg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEm7HAgfayO4yCmcY1KJ+nvDmaBfBj9zZWcV1+G3Syyb6Bv3NUe8t4g1lfBJk99A1Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -513,7 +515,7 @@ namespace KatsuShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2024, 12, 4, 8, 33, 40, 902, DateTimeKind.Utc).AddTicks(1211),
+                            DateCreated = new DateTime(2024, 12, 3, 18, 54, 47, 875, DateTimeKind.Utc).AddTicks(3450),
                             OriginalPrice = 100000m,
                             Price = 120000m,
                             Status = 1,
@@ -523,54 +525,13 @@ namespace KatsuShopSolution.Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2024, 12, 4, 8, 33, 40, 902, DateTimeKind.Utc).AddTicks(2631),
+                            DateCreated = new DateTime(2024, 12, 3, 18, 54, 47, 875, DateTimeKind.Utc).AddTicks(4855),
                             OriginalPrice = 150000m,
                             Price = 180000m,
                             Status = 1,
                             Stock = 0,
                             ViewCount = 0
                         });
-                });
-
-            modelBuilder.Entity("KatsuShopSolution.Data.Entities.ProductImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Caption")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("FileSize")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<bool>("IsDefault")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductImages");
                 });
 
             modelBuilder.Entity("KatsuShopSolution.Data.Entities.ProductInCategory", b =>
@@ -948,17 +909,6 @@ namespace KatsuShopSolution.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("KatsuShopSolution.Data.Entities.ProductImage", b =>
-                {
-                    b.HasOne("KatsuShopSolution.Data.Entities.Product", "Product")
-                        .WithMany("ProductImages")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("KatsuShopSolution.Data.Entities.ProductInCategory", b =>
                 {
                     b.HasOne("KatsuShopSolution.Data.Entities.Category", "Category")
@@ -1041,8 +991,6 @@ namespace KatsuShopSolution.Data.Migrations
                     b.Navigation("Carts");
 
                     b.Navigation("OrderDetails");
-
-                    b.Navigation("ProductImages");
 
                     b.Navigation("ProductInCategories");
 

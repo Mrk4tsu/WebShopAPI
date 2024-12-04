@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatsuShopSolution.WebApp", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatsuShopSolution.Application", "KatsuShopSolution.Application\KatsuShopSolution.Application.csproj", "{A582FCF1-8865-4210-99BC-192D4766533E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatsuShopSolution.Utilities", "KatsuShopSolution.Utilities\KatsuShopSolution.Utilities.csproj", "{87092DB3-855A-4341-968F-458D40B51865}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatsuShopSolution.ViewModels", "KatsuShopSolution.ViewModels\KatsuShopSolution.ViewModels.csproj", "{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatsuShopSolution.BackendApi", "KatsuShopSolution.BackendApi\KatsuShopSolution.BackendApi.csproj", "{25CFD72F-D28D-4B39-A5F5-A2290F98B0EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{A582FCF1-8865-4210-99BC-192D4766533E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A582FCF1-8865-4210-99BC-192D4766533E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A582FCF1-8865-4210-99BC-192D4766533E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87092DB3-855A-4341-968F-458D40B51865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87092DB3-855A-4341-968F-458D40B51865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87092DB3-855A-4341-968F-458D40B51865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87092DB3-855A-4341-968F-458D40B51865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25CFD72F-D28D-4B39-A5F5-A2290F98B0EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25CFD72F-D28D-4B39-A5F5-A2290F98B0EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25CFD72F-D28D-4B39-A5F5-A2290F98B0EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25CFD72F-D28D-4B39-A5F5-A2290F98B0EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,8 +10,6 @@ namespace KatsuShopSolution.Data.Entities
     public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
         public decimal Price { get; set; }
         public decimal OriginalPrice { get; set; }
         public int Stock { get; set; }
@@ -22,5 +20,6 @@ namespace KatsuShopSolution.Data.Entities
         public List<OrderDetail> OrderDetails { get; set; }
         public List<Cart> Carts { get; set; }
         public List<ProductTranslation> ProductTranslations { get; set; }
+        public List<ProductImage> ProductImages { get; set; }
     }
 }
