@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KatsuShopSolution.Application\KatsuShopSolution.Application.csproj" />
+    <ProjectReference Include="..\KatsuShopSolution.Data\KatsuShopSolution.Data.csproj" />
+    <ProjectReference Include="..\KatsuShopSolution.Utilities\KatsuShopSolution.Utilities.csproj" />
+    <ProjectReference Include="..\KatsuShopSolution.ViewModels\KatsuShopSolution.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KatsuShopSolution.ViewModels.Catalog.Products.Manage
+namespace KatsuShopSolution.ViewModels.Catalog.Products
 {
     public class ProductUpdateRequest
     {

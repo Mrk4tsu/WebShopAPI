@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KatsuShopSolution.ViewModels.Catalog.Products.Manage
+namespace KatsuShopSolution.ViewModels.Catalog.Products
 {
-    public class GetProductPagingRequest : PagingRequestBase
+    public class GetManageProductPagingRequest : PagingRequestBase
     {
         public string KeyWord { get; set; }
         public List<int> CategryIds { get; set; }

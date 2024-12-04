@@ -3,7 +3,6 @@ using KatsuShopSolution.Data.EF;
 using KatsuShopSolution.Data.Entities;
 using KatsuShopSolution.Utilities;
 using KatsuShopSolution.ViewModels.Catalog.Products;
-using KatsuShopSolution.ViewModels.Catalog.Products.Manage;
 using KatsuShopSolution.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Server.IISIntegration;
@@ -144,7 +143,7 @@ namespace KatsuShopSolution.Application.Catalog.Products
             return await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
+        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request)
         {
             //1.Select Join
             var query = from p in _dbContext.Products

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace KatsuShopSolution.ViewModels.Catalog.Products.Manage
+namespace KatsuShopSolution.ViewModels.Catalog.Products
 {
     public class ProductCreateRequest
     {
