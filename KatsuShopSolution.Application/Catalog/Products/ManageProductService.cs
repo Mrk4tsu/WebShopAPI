@@ -5,8 +5,6 @@ using KatsuShopSolution.Utilities;
 using KatsuShopSolution.ViewModels.Catalog.Products;
 using KatsuShopSolution.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Server.IISIntegration;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -73,8 +71,9 @@ namespace KatsuShopSolution.Application.Catalog.Products
                 };
             }
             _dbContext.Products.Add(product);
-            return await _dbContext.SaveChangesAsync();
-        }       
+            await _dbContext.SaveChangesAsync();
+            return product.Id;
+        }
 
         public async Task<int> Update(ProductUpdateRequest request)
         {
@@ -220,6 +219,28 @@ namespace KatsuShopSolution.Application.Catalog.Products
         public Task<List<ProductImageViewModel>> GetListImageProduct(int productId)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<ProductViewModel> GetById(int productId, string languageId)
+        {
+            var product = await _dbContext.Products.FindAsync(productId);
+            var productTrans = await _dbContext.ProductTranslations.FirstOrDefaultAsync(x => x.ProductId == productId && x.LanguageId == languageId);
+            var productViewModel = new ProductViewModel()
+            {
+                Id = product.Id,
+                DateCreated = product.DateCreated,
+                SeoDescription = productTrans != null ? productTrans.SeoDescription : null,
+                LanguageId = productTrans.LanguageId,
+                Details = productTrans != null ? productTrans.Details : null,
+                Name = productTrans != null ? productTrans.Name : null,
+                OriginalPrice = product.OriginalPrice,
+                Price = product.Price,
+                SeoAlias = productTrans != null ? productTrans.SeoAlias : null,
+                SeoTitle = productTrans != null ? productTrans.SeoTitle : null,
+                Stock = product.Stock,
+                ViewCount = product.ViewCount
+            };
+            return productViewModel;
         }
     }
 }

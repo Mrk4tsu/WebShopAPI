@@ -16,13 +16,14 @@ namespace KatsuShopSolution.Application.Catalog.Products
             _dbContext = dbContext;
         }
 
-        public async Task<List<ProductViewModel>> GetAll()
+        public async Task<List<ProductViewModel>> GetAll(string languageId)
         {
             //1.Select Join
             var query = from p in _dbContext.Products
                         join pt in _dbContext.ProductTranslations on p.Id equals pt.ProductId
                         join pic in _dbContext.ProductInCategories on p.Id equals pic.ProductId
                         join c in _dbContext.Categories on pic.CategoryId equals c.Id
+                        where pt.LanguageId == languageId
                         select new
                         {
                             p,
@@ -56,6 +57,7 @@ namespace KatsuShopSolution.Application.Catalog.Products
                         join pt in _dbContext.ProductTranslations on p.Id equals pt.ProductId
                         join pic in _dbContext.ProductInCategories on p.Id equals pic.ProductId
                         join c in _dbContext.Categories on pic.CategoryId equals c.Id
+                        where pt.LanguageId == request.LanguageId
                         select new
                         {
                             p,

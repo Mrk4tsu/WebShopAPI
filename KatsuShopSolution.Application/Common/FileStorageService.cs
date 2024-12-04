@@ -15,6 +15,11 @@ namespace KatsuShopSolution.Application.Common
         public FileStorageService(IWebHostEnvironment webHost)
         {
             _userContentFolder = Path.Combine(webHost.WebRootPath, USER_CONTENT_FOLDER_NAME);
+            // Kiểm tra và tạo thư mục nếu chưa tồn tại
+            if (!Directory.Exists(_userContentFolder))
+            {
+                Directory.CreateDirectory(_userContentFolder);
+            }
         }
         public async Task DeleteFileAsync(string fileName)
         {

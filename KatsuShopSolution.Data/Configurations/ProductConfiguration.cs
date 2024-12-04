@@ -1,4 +1,5 @@
 ﻿using KatsuShopSolution.Data.Entities;
+using KatsuShopSolution.Data.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -16,6 +17,7 @@ namespace KatsuShopSolution.Data.Configurations
             builder.Property(p => p.OriginalPrice).IsRequired().HasDefaultValue(0);
             builder.Property(p => p.Stock).IsRequired().HasDefaultValue(0);
             builder.Property(p => p.ViewCount).HasDefaultValue(0);
+            builder.Property(p => p.Status).HasDefaultValue(Status.Active);
 
         }
     }

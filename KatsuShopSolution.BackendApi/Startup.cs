@@ -1,4 +1,5 @@
 ﻿using KatsuShopSolution.Application.Catalog.Products;
+using KatsuShopSolution.Application.Common;
 using KatsuShopSolution.Data.EF;
 using KatsuShopSolution.Utilities;
 using Microsoft.AspNetCore.Builder;
@@ -33,6 +34,8 @@ namespace KatsuShopSolution.BackendApi
              * Singleton có nghĩa là chỉ tạo một đối tượng duy nhất cho mỗi ứng dụng.
              */
             services.AddTransient<IPublicProductService, PublicProductService>();
+            services.AddTransient<IManageProductService, ManageProductService>();
+            services.AddTransient<IFileStorageService, FileStorageService>();
             
             services.AddControllersWithViews();
 

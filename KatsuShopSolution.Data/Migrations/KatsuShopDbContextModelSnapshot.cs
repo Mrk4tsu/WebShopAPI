@@ -78,7 +78,7 @@ namespace KatsuShopSolution.Data.Migrations
                         new
                         {
                             Id = new Guid("3f2504e0-4f89-11d3-9a0c-0305e82c3301"),
-                            ConcurrencyStamp = "45f11b20-eb1c-45fa-9275-d41b5f094fe6",
+                            ConcurrencyStamp = "93ad727c-cf64-4891-9b94-71446e63c941",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -150,7 +150,7 @@ namespace KatsuShopSolution.Data.Migrations
                         {
                             Id = new Guid("22ebd3a9-ea29-4002-a442-99ed1385fa59"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c2d53652-514a-4de4-8462-f2f671a7cf6f",
+                            ConcurrencyStamp = "21a5e53f-f7c0-42b8-90bd-2bbbe0b0a277",
                             Dob = new DateTime(2002, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "mrk4tsu@gmail.com",
                             EmailConfirmed = true,
@@ -158,7 +158,7 @@ namespace KatsuShopSolution.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "mrk4tsu@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAyfg6ZR4wqD4hRRMOILD5aSjXH5D2JLbGNlRFsKGjx3kVJbICmTlfEOUJRNlOXGbg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO8qiPRVJVtQWq4mW2zd79LSnrt/WNNFcBCEIbEtZAN/4SJ6PDSJVQyDmWp5Ux/R5w==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -493,7 +493,9 @@ namespace KatsuShopSolution.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
 
                     b.Property<int>("Stock")
                         .ValueGeneratedOnAdd()
@@ -513,7 +515,7 @@ namespace KatsuShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2024, 12, 4, 8, 33, 40, 902, DateTimeKind.Utc).AddTicks(1211),
+                            DateCreated = new DateTime(2024, 12, 4, 13, 31, 29, 367, DateTimeKind.Utc).AddTicks(3843),
                             OriginalPrice = 100000m,
                             Price = 120000m,
                             Status = 1,
@@ -523,7 +525,7 @@ namespace KatsuShopSolution.Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2024, 12, 4, 8, 33, 40, 902, DateTimeKind.Utc).AddTicks(2631),
+                            DateCreated = new DateTime(2024, 12, 4, 13, 31, 29, 367, DateTimeKind.Utc).AddTicks(5131),
                             OriginalPrice = 150000m,
                             Price = 180000m,
                             Status = 1,
@@ -549,8 +551,8 @@ namespace KatsuShopSolution.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FileSize")
-                        .HasColumnType("int");
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("ImagePath")
                         .IsRequired()
