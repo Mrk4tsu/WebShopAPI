@@ -1,10 +1,10 @@
-﻿using KatsuShopSolution.Application.Catalog.Products.DTO;
-using KatsuShopSolution.Application.Catalog.Products.DTO.Public;
-using KatsuShopSolution.Application.DTOs;
-using KatsuShopSolution.Data.EF;
-using System.Threading.Tasks;
-using System.Linq;
+﻿using KatsuShopSolution.Data.EF;
+using KatsuShopSolution.ViewModels.Catalog.Products;
+using KatsuShopSolution.ViewModels.Catalog.Products.Public;
+using KatsuShopSolution.ViewModels.Common;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace KatsuShopSolution.Application.Catalog.Products
 {

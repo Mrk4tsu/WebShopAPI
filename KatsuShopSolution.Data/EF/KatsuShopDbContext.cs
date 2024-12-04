@@ -37,6 +37,8 @@ namespace KatsuShopSolution.Data.EF
             modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
             //Config ProductInCategory
             modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
+            //Config ProductImage
+            modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
             //Config Promotion
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             //Config Transaction
@@ -69,6 +71,7 @@ namespace KatsuShopSolution.Data.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductTranslation> ProductTranslations { get; set; }
         public DbSet<ProductInCategory> ProductInCategories { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         

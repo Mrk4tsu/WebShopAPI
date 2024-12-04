@@ -1,10 +1,8 @@
-﻿using KatsuShopSolution.Application.Catalog.Products.DTO;
-using KatsuShopSolution.Application.Catalog.Products.DTO.Manage;
-using KatsuShopSolution.Application.DTOs;
-using System;
+﻿using KatsuShopSolution.ViewModels.Catalog.Products;
+using KatsuShopSolution.ViewModels.Catalog.Products.Manage;
+using KatsuShopSolution.ViewModels.Common;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace KatsuShopSolution.Application.Catalog.Products
@@ -18,5 +16,9 @@ namespace KatsuShopSolution.Application.Catalog.Products
         Task AddViewCount(int productId);
         Task<int> Delete(int productId);
         Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
+        Task<int> AddImages(int productId, List<IFormFile> files);
+        Task<int> UpdateImages(int imageId, string caption, bool isDefault);
+        Task<int> RemoveImages(int imageId);
+        Task<List<ProductImageViewModel>> GetListImageProduct(int productId);
     }
 }

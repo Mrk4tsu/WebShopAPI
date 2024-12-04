@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatsuShopSolution.Applicati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatsuShopSolution.Utilities", "KatsuShopSolution.Utilities\KatsuShopSolution.Utilities.csproj", "{87092DB3-855A-4341-968F-458D40B51865}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatsuShopSolution.ViewModels", "KatsuShopSolution.ViewModels\KatsuShopSolution.ViewModels.csproj", "{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{87092DB3-855A-4341-968F-458D40B51865}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87092DB3-855A-4341-968F-458D40B51865}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87092DB3-855A-4341-968F-458D40B51865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC4BBF9A-FF27-482E-8BD9-A37F4F1EFA7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

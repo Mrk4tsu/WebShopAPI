@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KatsuShopSolution.Application.DTOs
+namespace KatsuShopSolution.ViewModels.Common
 {
     public class PageResult<T>
     {

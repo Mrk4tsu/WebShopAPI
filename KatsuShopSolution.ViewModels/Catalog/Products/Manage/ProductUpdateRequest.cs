@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KatsuShopSolution.Application.Catalog.Products.DTO.Manage
+namespace KatsuShopSolution.ViewModels.Catalog.Products.Manage
 {
     public class ProductUpdateRequest
     {
@@ -15,5 +16,6 @@ namespace KatsuShopSolution.Application.Catalog.Products.DTO.Manage
         public string SeoTitle { set; get; }
         public string SeoAlias { get; set; }
         public string LanguageId { set; get; }
+        public IFormFile ThumnailImage { get; set; }
     }
 }

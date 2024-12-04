@@ -1,6 +1,6 @@
-﻿using KatsuShopSolution.Application.Catalog.Products.DTO;
-using KatsuShopSolution.Application.Catalog.Products.DTO.Public;
-using KatsuShopSolution.Application.DTOs;
+﻿using KatsuShopSolution.ViewModels.Catalog.Products;
+using KatsuShopSolution.ViewModels.Catalog.Products.Public;
+using KatsuShopSolution.ViewModels.Common;
 using System.Threading.Tasks;
 
 namespace KatsuShopSolution.Application.Catalog.Products

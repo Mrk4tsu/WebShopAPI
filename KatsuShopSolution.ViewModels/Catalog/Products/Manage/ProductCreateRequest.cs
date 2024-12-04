@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
 
-namespace KatsuShopSolution.Application.Catalog.Products.DTO.Manage
+namespace KatsuShopSolution.ViewModels.Catalog.Products.Manage
 {
     public class ProductCreateRequest
     {
@@ -17,5 +13,6 @@ namespace KatsuShopSolution.Application.Catalog.Products.DTO.Manage
         public decimal Price { get; set; }
         public decimal OriginalPrice { get; set; }
         public int Stock { get; set; }
+        public IFormFile ThumnailImage { get; set; }
     }
 }
